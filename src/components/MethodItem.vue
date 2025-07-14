@@ -178,7 +178,7 @@ const hasResults = computed(() => {
 
 <template>
   <div class="method-item">
-    <div class="method-item-header" :style="isExpanded ? 'margin-bottom: 0;' : ''">
+    <div class="method-item-header">
       <div class="method-item-header-left">
         <span class="subtitle-text">{{ method.name }}</span>
         <span class="method-type">
