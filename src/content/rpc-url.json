@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Ethereum Llama",
+        "url": "https://eth.llamarpc.com"
+    },
+    {
+        "name": "Ethereum Drpc",
+        "url": "https://eth.drpc.org"
+    },
+    {
+        "name": "Ethereum Drpc Wss",
+        "url": "wss://eth.drpc.org"
+    }
+]
