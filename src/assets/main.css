@@ -1,0 +1,76 @@
+@import './base.css';
+
+#app {
+  max-width: 1100px;
+  margin: 0 auto;
+  font-weight: normal;
+  min-height: 100vh;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+
+@media (hover: hover) {
+  a:hover {
+    background-color: hsla(160, 100%, 37%, 0.2);
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+    display: flex;
+    place-items: center;
+  }
+
+}
+
+/* Typography */
+
+.title-text {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  font-weight: 600;
+  color: var(--color-heading);
+}
+
+.title-text-sm {
+  font-size: 1.5rem;
+  line-height: 1.2;
+  font-weight: 600;
+  color: var(--color-heading);
+}
+
+.subtitle-text {
+  font-size: 1.5rem;
+  line-height: 1.4;
+  font-weight: 300;
+  color: var(--color-text);
+}
+
+.body-text {
+  font-size: 1rem;
+  line-height: 1.4;
+  font-weight: 400;
+  color: var(--color-text);
+}
+
+.button-text {
+  font-size: 1rem;
+  line-height: 0.8;
+  font-weight: 500;
+}
+
+.button-text-sm {
+  font-size: 0.8rem;
+  line-height: 0.8;
+  font-weight: 500;
+}
+
+.error-text {
+  color: var(--error);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
