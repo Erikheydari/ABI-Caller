@@ -11,6 +11,7 @@ import { ref, watch, onMounted, computed } from "vue";
 import { useWalletGenerator } from "@/composables/useWalletGenerator.js";
 import { useAbiManager } from "@/composables/useAbiManager.js";
 import { useSessionStorage } from "@/composables/useSessionStorage.js";
+import { useWallet } from "@/composables/useWallet.js";
 
 import rpcUrlContent from "@/content/rpc-url.json";
 
@@ -85,6 +86,19 @@ const {
 } = useWalletGenerator((generatedAddr, generatedPrivKey) => {
   console.log('Address generated:', generatedAddr, 'Private Key:', generatedPrivKey);
 });
+
+const {
+  wallet,
+  provider: walletProvider,
+  signer: walletSigner,
+  address: walletAddress,
+  chainId: walletChainId,
+  network,
+  balance,
+  isConnected,
+  connectWallet,
+  disconnectWallet
+} = useWallet();
 
 
 
@@ -241,11 +255,16 @@ onMounted(() => {
           </template>
         </InputField>
         <span class="body-text">
-          Address: {{ address }}
+          {{ isConnected ? 'Connected to: ' + walletAddress : 'Address: ' + address }}
         </span>
         <div class="flex-row-wrapper">
           <Button :disabled="useConnectWallet" @click="generateRandomWallet">Generate Random Wallet</Button>
-          <Button :disabled="!useConnectWallet">Connect</Button>
+          <Button v-if="!isConnected" :disabled="!useConnectWallet" @click="connectWallet">
+            Connect
+          </Button>
+          <Button v-else :disabled="!isConnected" @click="disconnectWallet" class="error-button">
+            Disconnect
+          </Button>
         </div>
         <span v-if="walletError" class="error-text">{{ walletError }}</span>
       </div>

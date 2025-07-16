@@ -137,7 +137,7 @@ export function useContractCaller() {
                         , 2)
                 }
             } else {
-                result.value = res ? res.toString() : 'Success'
+                result.value = res.toString()
             }
 
         } catch (err) {

@@ -1,4 +1,6 @@
 <script setup>
+import { computed } from 'vue';
+
 const props = defineProps({
     disabled: {
         type: Boolean,
@@ -15,14 +17,21 @@ const props = defineProps({
     variant: {
         type: String,
         default: 'primary'
+    },
+    class: {
+        type: String,
+        default: ''
     }
+})
+
+const buttonClass = computed(() => {
+    return [
+        props.size === 'small' ? 'button-small button-text-sm' : 'button-base button-text',
+        props.variant === 'secondary' ? 'button-secondary' : '',]
 })
 </script>
 <template>
-    <button :type="type" class="default-transition" :disabled="disabled"
-        :class="[size === 'small' ? 'button-small button-text-sm' : 'button-base button-text',
-        variant === 'secondary' ? 'button-secondary' : ''
-        ]">
+    <button :type="type" class="default-transition" :disabled="disabled" :class="[buttonClass, props.class]">
         <slot />
     </button>
 </template>
@@ -68,6 +77,19 @@ button {
 
     &:hover {
         background: var(--color-background-mute);
+    }
+}
+
+.error-button {
+    background: var(--error-muted);
+    color: var(--error);
+    border: 1px solid var(--error);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    text-wrap: nowrap;
+
+    &:hover {
+        background: var(--color-background-soft);
     }
 }
 </style>
