@@ -37,3 +37,44 @@ bun run build
 ```sh
 bun lint
 ```
+
+## Deployment
+
+### GitHub Pages
+
+This project is configured for automatic deployment to GitHub Pages. The deployment happens automatically when you push to the `main` branch.
+
+#### Manual Deployment
+
+If you want to deploy manually:
+
+```sh
+# Deploy to GitHub Pages
+npm run deploy
+
+# Deploy with clean (removes old files)
+npm run deploy:clean
+```
+
+#### Setup Instructions
+
+1. **Enable GitHub Pages** in your repository settings:
+   - Go to Settings → Pages
+   - Set Source to "GitHub Actions"
+
+2. **Push your code** to the `main` branch to trigger automatic deployment
+
+3. **Your site will be available at**: `https://[your-username].github.io/ABI-Caller/`
+
+#### Custom Domain (Optional)
+
+If you have a custom domain, uncomment and update the `cname` field in `.github/workflows/deploy.yml`.
+
+### Local Preview
+
+To preview the production build locally:
+
+```sh
+npm run build
+npm run preview
+```
